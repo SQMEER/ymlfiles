@@ -1,0 +1,30 @@
+version: '3.0' 
+services:
+
+  mav_cont:
+    image: maven:3.9.6-eclipse-temurin-21-alpine
+    ports:
+      - "81:8080"
+    volumes:
+      - /home/ec2-user/mvn:/abc
+
+  ubun_cont:
+    image: ubuntu:22.04
+    volumes:
+      - /home/ec2-user/bun:/abc
+ 
+  red_cont:
+   image: redis
+   ports:
+     - "1001:6379"
+   volumes:
+     - /home/ec2-user/redi:/abc
+
+  py_cont:
+    image: python:alpine3.19
+    ports: 
+      - "12:8000"
+    volumes: 
+      - /home/ec2-user/pyth:/abc
+
+
